@@ -89,5 +89,8 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerView = binding.recentPasswordsRecycler;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new QuickAddAdapter(recentEntries));
+        androidx.appcompat.widget.Toolbar toolbar = requireActivity().findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            toolbar.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.pop_color));        }
     }
 }

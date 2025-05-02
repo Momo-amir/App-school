@@ -18,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,6 +35,7 @@ public class ViewPasswordFragment extends Fragment {
     private ImageView serviceIcon;
     private Button copyPasswordButton;
     private ImageButton  editButton, deleteButton, togglePasswordButton;
+
 
     private boolean isPasswordVisible = false;
     private String currentWebsite;
@@ -58,6 +60,7 @@ public class ViewPasswordFragment extends Fragment {
         usernameText = view.findViewById(R.id.username_text);
         passwordText = view.findViewById(R.id.password_text);
         serviceIcon = view.findViewById(R.id.service_icon);
+
 
         togglePasswordButton = view.findViewById(R.id.button_toggle_password);
         copyPasswordButton = view.findViewById(R.id.button_copy_password);
@@ -94,7 +97,10 @@ public class ViewPasswordFragment extends Fragment {
                 );
                 header.setBackground(gradient);
                 copyPasswordButton.setBackgroundTintList(android.content.res.ColorStateList.valueOf(color));
-
+                androidx.appcompat.widget.Toolbar toolbar = requireActivity().findViewById(R.id.toolbar);
+                if (toolbar != null) {
+                    toolbar.setBackgroundColor(color);
+                }
             }
         }
 

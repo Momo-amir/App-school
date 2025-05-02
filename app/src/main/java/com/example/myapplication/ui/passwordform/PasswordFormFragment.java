@@ -78,6 +78,10 @@ public class PasswordFormFragment extends Fragment {
                         }                );
                 header.setBackground(gradient);
                 saveButton.setBackgroundTintList(android.content.res.ColorStateList.valueOf(color));
+                androidx.appcompat.widget.Toolbar toolbar = requireActivity().findViewById(R.id.toolbar);
+                if (toolbar != null) {
+                    toolbar.setBackgroundColor(color);
+                }
             }
 
             if (url != null) {
