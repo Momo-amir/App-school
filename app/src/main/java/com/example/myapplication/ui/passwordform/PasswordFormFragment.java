@@ -49,6 +49,8 @@ public class PasswordFormFragment extends Fragment {
         inputPassword = view.findViewById(R.id.input_password);
         inputPasswordConfirm = view.findViewById(R.id.input_password_confirm);
         saveButton = view.findViewById(R.id.button_save);
+        TextView websiteLink = view.findViewById(R.id.website_link);
+
 
         Bundle args = getArguments();
         if (args != null) {
@@ -71,14 +73,16 @@ public class PasswordFormFragment extends Fragment {
                         GradientDrawable.Orientation.TOP_BOTTOM,
                         new int[] {
                                 color, color, // hold strong color
-                                adjustAlpha(color, 0.6f),
+                                adjustAlpha(color, 0.8f),
                                 Color.WHITE  // fade to white
                         }                );
                 header.setBackground(gradient);
+                saveButton.setBackgroundTintList(android.content.res.ColorStateList.valueOf(color));
             }
 
             if (url != null) {
                 inputWebsite.setText(url);
+                websiteLink.setText(url);
                 inputWebsite.setEnabled(false); // lock URL for known services
             }
 
@@ -91,6 +95,7 @@ public class PasswordFormFragment extends Fragment {
 
         saveButton.setOnClickListener(v -> {
             String website = inputWebsite.getText().toString();
+
             String username = inputUsername.getText().toString();
             String password = inputPassword.getText().toString();
             String confirm = inputPasswordConfirm.getText().toString();

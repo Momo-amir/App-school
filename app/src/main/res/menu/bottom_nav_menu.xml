@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_back"
+        android:icon="@drawable/ic_back"
+        android:title="Back" />
+
+    <item
+        android:id="@+id/nav_forward"
+        android:icon="@drawable/ic_forward"
+        android:title="Forward" />
+
+    <item
+        android:id="@+id/nav_quick_add"
+        android:icon="@drawable/ic_add"
+        android:title="Quick Add" />
+
+    <item
+        android:id="@+id/nav_more"
+        android:icon="@drawable/ic_more_vert"
+        android:title="More" />
+</menu>

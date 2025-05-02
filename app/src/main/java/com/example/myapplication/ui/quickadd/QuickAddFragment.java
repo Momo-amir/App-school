@@ -17,17 +17,18 @@ import com.example.myapplication.QuickAddAdapter;
 import com.example.myapplication.R;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class QuickAddFragment extends Fragment {
 
-    private final List<PasswordService> services = Arrays.asList(
+    public static final List<PasswordService> services = Arrays.asList(
             new PasswordService("Discord", "https://discord.com/login", R.drawable.ic_discord, Color.parseColor("#5865F2"), "discord"),
-            new PasswordService("YouTube", "https://accounts.google.com/ServiceLogin?service=youtube", R.drawable.ic_youtube, Color.parseColor("#FF0000"), "youtube"),
+            new PasswordService("YouTube", "https://accounts.google.com/ServiceLogin?service=youtube", R.drawable.ic_youtube, Color.parseColor("#ed1d24"), "youtube"),
             new PasswordService("Airbnb", "https://www.airbnb.com/login", R.drawable.ic_airbnb, Color.parseColor("#FF5A5F"), "airbnb"),
             new PasswordService("GitHub", "https://github.com/login", R.drawable.ic_github, Color.BLACK, "github"),
             new PasswordService("Facebook", "https://www.facebook.com/login", R.drawable.ic_facebook, Color.parseColor("#1877F2"), "facebook"),
-            new PasswordService("Custom", "", R.drawable.ic_custom, Color.GRAY, "custom")
+            new PasswordService("Custom", null, R.drawable.ic_custom, Color.GRAY, "custom")
     );
     @Nullable
     @Override
@@ -40,4 +41,9 @@ public class QuickAddFragment extends Fragment {
         recyclerView.setAdapter(new QuickAddAdapter(services));
         return view;
     }
+
+    public static List<PasswordService> getKnownServices() {
+        return services.subList(0, services.size() - 1); // exclude "Custom"
+    }
+
 }

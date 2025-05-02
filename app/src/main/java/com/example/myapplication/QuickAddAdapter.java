@@ -18,6 +18,7 @@ import java.util.List;
 
 public class QuickAddAdapter extends RecyclerView.Adapter<QuickAddAdapter.ViewHolder> {
 
+
     private final List<PasswordService> serviceList;
     public QuickAddAdapter(List<PasswordService> serviceList) {
         this.serviceList = serviceList;
@@ -40,6 +41,14 @@ public class QuickAddAdapter extends RecyclerView.Adapter<QuickAddAdapter.ViewHo
 
         holder.itemView.setOnClickListener(v -> {
 
+            NavController navController = Navigation.findNavController(holder.itemView);
+            Bundle bundle = new Bundle();
+
+            if (service.getId().equals("custom")) {
+                navController.navigate(R.id.action_quickAddFragment_to_customPasswordListFragment);
+                return;
+            }
+
             PasswordDbHelper dbHelper = new PasswordDbHelper(holder.itemView.getContext());
             Cursor cursor = dbHelper.getAllPasswords();
             boolean exists = false;
@@ -53,8 +62,6 @@ public class QuickAddAdapter extends RecyclerView.Adapter<QuickAddAdapter.ViewHo
             }
             cursor.close();
 
-            NavController navController = Navigation.findNavController(holder.itemView);
-            Bundle bundle = new Bundle();
             if (exists) {
                 bundle.putString("website", service.getUrl());
                 bundle.putString("serviceName", service.getName());

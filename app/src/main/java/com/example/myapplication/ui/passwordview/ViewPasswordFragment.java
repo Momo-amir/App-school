@@ -32,8 +32,8 @@ public class ViewPasswordFragment extends Fragment {
 
     private TextView serviceName, websiteLink, usernameText, passwordText;
     private ImageView serviceIcon;
-    private Button togglePasswordButton, copyPasswordButton;
-    private ImageButton  editButton, deleteButton;
+    private Button copyPasswordButton;
+    private ImageButton  editButton, deleteButton, togglePasswordButton;
 
     private boolean isPasswordVisible = false;
     private String currentWebsite;
@@ -53,6 +53,8 @@ public class ViewPasswordFragment extends Fragment {
 
         serviceName = view.findViewById(R.id.service_name);
         websiteLink = view.findViewById(R.id.website_link);
+        TextView websiteLinkClickable = view.findViewById(R.id.website_link_clickable);
+
         usernameText = view.findViewById(R.id.username_text);
         passwordText = view.findViewById(R.id.password_text);
         serviceIcon = view.findViewById(R.id.service_icon);
@@ -84,10 +86,15 @@ public class ViewPasswordFragment extends Fragment {
                         new int[] {
                                 color, color, // hold strong color
                                 adjustAlpha(color, 0.8f),
+                                adjustAlpha(color, 0.6f),
+                                adjustAlpha(color, 0.4f),
+
                                 Color.WHITE  // fade to white
                         }
                 );
                 header.setBackground(gradient);
+                copyPasswordButton.setBackgroundTintList(android.content.res.ColorStateList.valueOf(color));
+
             }
         }
 
@@ -99,10 +106,11 @@ public class ViewPasswordFragment extends Fragment {
                 String username = cursor.getString(cursor.getColumnIndexOrThrow(PasswordDbHelper.COLUMN_USERNAME));
                 String password = cursor.getString(cursor.getColumnIndexOrThrow(PasswordDbHelper.COLUMN_PASSWORD));
                 websiteLink.setText(website);
+                websiteLinkClickable.setText(website);
                 usernameText.setText(username);
                 passwordText.setText(password);
                 passwordText.setTransformationMethod(new PasswordTransformationMethod());
-                serviceName.setText("Service Info");
+                // serviceName.setText("Service Info");
 
                 // Optional: set serviceIcon if known
                 break;
@@ -113,10 +121,10 @@ public class ViewPasswordFragment extends Fragment {
         togglePasswordButton.setOnClickListener(v -> {
             if (isPasswordVisible) {
                 passwordText.setTransformationMethod(new PasswordTransformationMethod());
-                togglePasswordButton.setText("Show Password");
+
             } else {
                 passwordText.setTransformationMethod(new SingleLineTransformationMethod());
-                togglePasswordButton.setText("Hide Password");
+
             }
             isPasswordVisible = !isPasswordVisible;
         });
