@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="200dp"
+        android:height="200dp"
+        android:viewportWidth="512"
+        android:viewportHeight="512"
+        android:name="ic_discord">
+        <!-- Background with rounded corners -->
+        <path
+            android:pathData="M32,0h448a32,32 0,0 1,32 32v448a32,32 0,0 1,-32 32h-448a32,32 0,0 1,-32 -32v-448a32,32 0,0 1,32 -32z"
+            android:fillColor="#5865f2" />
+
+        <!-- Left eye -->
+        <path
+            android:pathData="M196,304a34,37 0,1 0,-1 0m63,58q-46,0 -95,-21l-7,5q7,6 31,16 -8,16 -20,32 -52,-16 -93,-47 -13,-109 54,-211 38,-18 77,-24l10,20q16,-3 42,-3Z"
+            android:fillColor="#fff" />
+
+        <!-- Right eye -->
+        <path
+            android:pathData="M316,304a37,34 90,1 1,1 0m-63,58q46,0 95,-21l7,5q-7,6 -31,16 8,16 20,32 52,-16 93,-47 13,-109 -54,-211 -38,-18 -77,-24l-10,20q-16,-3 -42,-3Z"
+            android:fillColor="#fff" />
+    </vector>
