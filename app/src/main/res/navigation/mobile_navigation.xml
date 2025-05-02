@@ -36,4 +36,25 @@
         android:id="@+id/action_nav_home_to_quickAddFragment"
         app:destination="@id/quickAddFragment" />
 
+    <fragment
+        android:id="@+id/passwordFormFragment"
+        android:name="com.example.myapplication.ui.passwordform.PasswordFormFragment"
+        android:label="Password Form"
+        tools:layout="@layout/fragment_password_form" />
+    <action
+        android:id="@+id/action_quickAddFragment_to_passwordFormFragment"
+        app:destination="@id/passwordFormFragment" />
+
+    <fragment
+        android:id="@+id/viewPasswordFragment"
+        android:name="com.example.myapplication.ui.passwordview.ViewPasswordFragment"
+        android:label="View Password"
+        tools:layout="@layout/fragment_view_password" />
+    <action
+        android:id="@+id/action_viewPasswordFragment_to_passwordFormFragment"
+        app:destination="@id/passwordFormFragment" />
+    <action
+        android:id="@+id/action_quickAddFragment_to_viewPasswordFragment"
+        app:destination="@id/viewPasswordFragment" />
+
 </navigation>
