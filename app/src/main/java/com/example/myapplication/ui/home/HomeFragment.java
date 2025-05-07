@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.database.Cursor;
 import android.widget.Button;
-import android.widget.Toast;
+    import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
@@ -31,8 +31,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -42,6 +41,11 @@ public class HomeFragment extends Fragment {
         binding.buttonAddPassword.setOnClickListener(v -> {
             NavController navController = Navigation.findNavController(v);
             navController.navigate(R.id.action_nav_home_to_quickAddFragment);
+        });
+
+        binding.buttonContactManager.setOnClickListener(v -> {
+            NavController navController = Navigation.findNavController(v);
+            navController.navigate(R.id.action_nav_home_to_contactManagerFragment);
         });
 
         updatePasswordList(dbHelper);

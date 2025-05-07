@@ -50,16 +50,31 @@
         android:paddingBottom="8dp" />
 
     <!-- Call to action -->
+    <!-- Left button -->
     <Button
         android:id="@+id/button_add_password"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Password Manager"
+        android:text="@string/password_manager"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/pop_color_variant"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/button_contact_manager"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Right button -->
+    <Button
+        android:id="@+id/button_contact_manager"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_manager"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/pop_color_variant"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/button_add_password"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginBottom="16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -56,6 +56,13 @@
         android:label="Custom Entries"
         tools:layout="@layout/fragment_quick_add" />
 
+    <fragment
+        android:id="@+id/contact_manager_fragment"
+        android:name="com.example.myapplication.ui.contactmanager.ContactManagerFragment"
+        android:label="Contact Manager"
+        tools:layout="@layout/fragment_contact_manager" />
+
+
     <action
         android:id="@+id/action_customPasswordListFragment_to_passwordFormFragment"
         app:destination="@id/passwordFormFragment" />
@@ -67,5 +74,8 @@
         android:id="@+id/action_quickAddFragment_to_customPasswordListFragment"
         app:destination="@id/customPasswordListFragment" />
 
+    <action
+        android:id="@+id/action_nav_home_to_contactManagerFragment"
+        app:destination="@id/contact_manager_fragment" />
 
 </navigation>
