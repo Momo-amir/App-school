@@ -44,7 +44,7 @@ public class CustomPasswordListFragment extends Fragment {
 
         while (cursor.moveToNext()) {
             String website = cursor.getString(cursor.getColumnIndexOrThrow(PasswordDbHelper.COLUMN_WEBSITE));
-            // avoid including known services (if needed)
+            // avoid including known services
             customEntries.add(new PasswordService(
                     website,
                     website,

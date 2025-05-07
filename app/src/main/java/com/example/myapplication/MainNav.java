@@ -23,7 +23,7 @@ public class MainNav extends AppCompatActivity {
         binding = ActivityMainNavBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar); // Uses toolbar from layout via ViewBinding
+        setSupportActionBar(binding.toolbar); // Uses toolbar from XML layout
 
         BottomNavigationView bottomNav = binding.bottomNav;
 
@@ -35,7 +35,7 @@ public class MainNav extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home,
                 R.id.nav_quick_add
-                // Add more if needed
+                // TODO ADD FOR CONTACT_MANAGER
         ).build();
 
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -56,10 +56,10 @@ public class MainNav extends AppCompatActivity {
                 }
                 return true;
             } else if (id == R.id.nav_forward) {
-                // No forward stack in NavController; placeholder or implement custom logic
+                // TODO  Future Momo: implement forward navigation
                 return true;
             } else if (id == R.id.nav_more) {
-                // Future: open a bottom sheet or popup menu
+                // TODO Future Momo: open a bottom sheet or popup menu
                 return true;
             }
             return false;

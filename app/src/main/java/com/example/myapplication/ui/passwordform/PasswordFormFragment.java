@@ -73,7 +73,7 @@ public class PasswordFormFragment extends Fragment {
                         GradientDrawable.Orientation.TOP_BOTTOM,
                         new int[] {
                                 color, color, // hold strong color
-                                adjustAlpha(color, 0.8f),
+                                adjustAlpha(color, 0.8f), //holds less color but this system is dumb for this
                                 Color.WHITE  // fade to white
                         }                );
                 header.setBackground(gradient);
@@ -90,7 +90,6 @@ public class PasswordFormFragment extends Fragment {
                 inputWebsite.setEnabled(false); // lock URL for known services
             }
 
-            // Optional: handle username/password if passed for editing
             inputUsername.setText(args.getString("username", ""));
             inputPassword.setText(args.getString("password", ""));
             inputPasswordConfirm.setText(args.getString("password", ""));
@@ -118,7 +117,7 @@ public class PasswordFormFragment extends Fragment {
             dbHelper.addPassword(website, username, password);
             Toast.makeText(getContext(), "Password saved", Toast.LENGTH_SHORT).show();
 
-            requireActivity().onBackPressed(); // navigate back
+            requireActivity().onBackPressed(); // navigate back deprecated TODO add correct back
         });
 
         return view;
